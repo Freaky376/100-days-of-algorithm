@@ -35,10 +35,15 @@ def two_sum(nums: list[int], target: int) -> list[int]:
     Returns:
         List of two indices [i, j] where nums[i] + nums[j] == target
     """
-    # TODO: Implement your solution here
-    empty_hashmap = {}
+    seen = {}
     
-    pass
+    for i, num in enumerate(nums):
+        complement = target - num
+        if complement in seen:
+            return [seen[complement], i]
+        seen[num] = i
+        
+    return []
 
 
 # --- Test Cases ---
